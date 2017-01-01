@@ -41,7 +41,7 @@ def main():
     submission_metrics_df = pd.read_csv("submission_metrics.csv",index_col = 0)
     submission_metrics_df.sort_values('score',ascending=True, inplace=True)
 
-    '''
+
     #---------------------------------------------------------------------------
     ## Submissions Analysis
     #---------------------------------------------------------------------------
@@ -72,7 +72,7 @@ def main():
     #plt.savefig('results/scatter_submission.eps', format='eps', dpi=1000)
     plt.show()
 
-    '''
+
     #---------------------------------------------------------------------------
     ## Clubs Analysis for TOP 6 Clubs with the highest average flair share percentage
     #---------------------------------------------------------------------------
@@ -87,7 +87,7 @@ def main():
     plt.ylabel("Flair percentage share per submission")
     plt.xlabel("Flairs")
     plt.show()
-    '''
+
     #---------------------------------------------------------------------------
     ## Comparing Metrics for Submissions:
     #---------------------------------------------------------------------------
@@ -132,7 +132,7 @@ def main():
     plt.ylabel("Number of Comments")
     plt.ylim((0,2000))
     plt.show()
-    '''
+    
 
 # This is the standard boilerplate that calls the main() function.
 if __name__ == '__main__':
