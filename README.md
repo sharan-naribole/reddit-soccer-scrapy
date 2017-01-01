@@ -8,9 +8,9 @@ In this project, my objective is to analyze the fan distribution across the foru
 
 Tools utilized:
 
-1) Scrapy Pythion framework to extract data from reddit soccer subreddit. The code can be found in the /flairs directory.
+1) Scrapy Pythion framework to extract data from reddit soccer subreddit. The Scrapy crawler code can be found here: reddit-soccer-scrapy/flairs/flairs/spiders/rsoccer_flairs.py
 
-2) Pandas, matplotlib for Data Analysis.
+2) Pandas, matplotlib for Data Analysis. The processing.py converts the scraped data to corresponding data frames. The visualisations are constructed in analysis.py
 
 For the evaluation, I analyze the Fan diversity through the metrics a) unique team crests per submission and b) percentage share of the biggest fan representation per submission.On one extreme, goal videos tend to have a high diversity in discussion as the quality of goal can transcend a fan's support for a club. In contrast,  match threads which are posts that are intended for discussions of a particular, ongoing match tend to have lower diversity. This is because there is a significant percentage of the comments from fans of the two clubs taking part in the match.  
 
