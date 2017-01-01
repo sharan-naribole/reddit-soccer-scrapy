@@ -6,6 +6,11 @@ Reddit soccer subreddit /r/soccer is an enormous community of soccer fans with a
 
 In this project, my objective is to analyze the fan distribution across the forum. For this purpose, I collect the user-flair mapping for top 500 comments in each of the top 1000 posts during the past one month. With football games occurring on a weekly basis, this data represents a typical activity in the forum. 
 
+Tools utilized:
+1) Scrapy Pythion framework to extract data from reddit soccer subreddit. The code can be found in the /flairs directory.
+
+2) Pandas, matplotlib for Data Analysis.
+
 For the evaluation, I analyze the Fan diversity through the metrics a) unique team crests per submission and b) percentage share of the biggest fan representation per submission.On one extreme, goal videos tend to have a high diversity in discussion as the quality of goal can transcend a fan's support for a club. In contrast,  match threads which are posts that are intended for discussions of a particular, ongoing match tend to have lower diversity. This is because there is a significant percentage of the comments from fans of the two clubs taking part in the match.  
 
 Moreover, I also analyze the relationship between the fan diversity of a submission with the submission score. Submission score is the difference of upvotes and downvotes from the users resulting in ranking of the various submissions on the subreddit.
