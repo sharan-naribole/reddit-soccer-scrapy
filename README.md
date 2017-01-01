@@ -8,7 +8,7 @@ In this project, my objective is to analyze the fan distribution across the foru
 
 Tools utilized:
 
-1) Scrapy Pythion framework to extract data from reddit soccer subreddit. The Scrapy crawler code can be found here: reddit-soccer-scrapy/flairs/flairs/spiders/rsoccer_flairs.py
+1) Scrapy Pythion framework and SelectorGadget Tool to extract data from reddit soccer subreddit. The Scrapy crawler code can be found here: reddit-soccer-scrapy/flairs/flairs/spiders/rsoccer_flairs.py
 
 2) Pandas, matplotlib for Data Analysis. The processing.py converts the scraped data to corresponding data frames. The visualisations are constructed in analysis.py
 
