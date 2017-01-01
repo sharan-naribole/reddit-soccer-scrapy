@@ -7,6 +7,7 @@ Reddit soccer subreddit /r/soccer is an enormous community of soccer fans with a
 In this project, my objective is to analyze the fan distribution across the forum. For this purpose, I collect the user-flair mapping for top 500 comments in each of the top 1000 posts during the past one month. With football games occurring on a weekly basis, this data represents a typical activity in the forum. 
 
 Tools utilized:
+
 1) Scrapy Pythion framework to extract data from reddit soccer subreddit. The code can be found in the /flairs directory.
 
 2) Pandas, matplotlib for Data Analysis.
