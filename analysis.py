@@ -3,6 +3,7 @@ import pandas as pd
 import re
 import matplotlib.pyplot as plt
 import seaborn as sns
+import pickle
 #sns.set_style("whitegrid")
 
 plt.style.use('seaborn-poster')
@@ -37,8 +38,10 @@ def check_goal(title):
 
 #Define a main() function that prints a little greeting.
 def main():
-    clubs_df = pd.read_csv("clubs.csv",index_col=0)
-    submission_metrics_df = pd.read_csv("submission_metrics.csv",index_col = 0)
+    with open('metrics.pckl','rb') as f:
+        clubs_df, submission_metrics_df = pickle.load(f)
+    #clubs_df = pd.read_csv("clubs.csv",index_col=0)
+    #submission_metrics_df = pd.read_csv("submission_metrics.csv",index_col = 0)
     submission_metrics_df.sort_values('score',ascending=True, inplace=True)
 
 
