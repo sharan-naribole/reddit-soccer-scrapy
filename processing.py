@@ -55,9 +55,11 @@ def main():
     #print(clubs_df.apply(lambda x:np.mean(x), axis=1).sort_values(ascending=False))
 
     #Concat Submission Score
-
-    clubs_df.to_csv("clubs.csv")
-    submission_metrics_df.to_csv("submission_metrics.csv")
+    
+    with open('metrics.pckl', 'wb') as f: 
+        pickle.dump([clubs_df, submission_metrics_df], f)
+    #clubs_df.to_csv("clubs.csv")
+    #submission_metrics_df.to_csv("submission_metrics.csv")
 
 # This is the standard boilerplate that calls the main() function.
 if __name__ == '__main__':
