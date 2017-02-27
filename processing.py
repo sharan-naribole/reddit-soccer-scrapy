@@ -5,6 +5,7 @@
 import pandas as pd
 import numpy as np
 from scipy import stats
+import pickle
 
 #Computes the metrics of percentage shares and Diversity from a given submission's flair_map raw data
 def compute_flair_stats(flair_map_str):
