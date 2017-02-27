@@ -1,3 +1,7 @@
+# Author: Sharan Naribole
+# Filename: analysis.py
+# Evaluation of Reddit Soccer data after transformations 
+
 import numpy as np
 import pandas as pd
 import re
