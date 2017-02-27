@@ -1,3 +1,7 @@
+# Author: Sharan Naribole
+# Filename: spell_correcter.R
+# Reddit soccer data wrangling
+
 import pandas as pd
 import numpy as np
 from scipy import stats
