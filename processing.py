@@ -30,7 +30,7 @@ def score_conv(score):
 
 #Define a main() function that prints a little greeting.
 def main():
-    reddit_df = pd.read_csv("flairs/reddit_data.csv") #DataFrame
+    reddit_df = pd.read_csv("flairs/reddit_data.csv") #Data obtained from web scraping
     reddit_df.set_index('title',inplace=True)
     metrics_data = {'top_share': np.zeros(len(reddit_df.index)),
                     'diversity': np.zeros(len(reddit_df.index))}
