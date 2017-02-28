@@ -10,6 +10,7 @@ import seaborn as sns
 import pickle
 #sns.set_style("whitegrid")
 
+# Plot Configuration
 plt.style.use('seaborn-poster')
 plt.rcParams['font.family'] = 'serif'
 plt.rcParams['font.serif'] = 'Ubuntu'
@@ -23,6 +24,7 @@ plt.rcParams['legend.fontsize'] = 24
 plt.rcParams['figure.titlesize'] = 24
 
 def word_locate(x,y):
+# Find word x in string y
     #x = player search index, y = reddit post title
     match = re.search(r'\b({0})\b'.format(x), y)
     res = 0
@@ -31,6 +33,7 @@ def word_locate(x,y):
     return res
 
 def check_goal(title):
+# Boolean function that checks if keywords exist in input string    
     check = 0
     keywords =['goal','scores','vs','against']
     keywords_bool =list(map(lambda keyword:word_locate(keyword,title),keywords))
