@@ -1,5 +1,5 @@
 # Author: Sharan Naribole
-# Filename: spell_correcter.R
+# Filename: processing.py
 # Reddit soccer data wrangling
 
 import pandas as pd
