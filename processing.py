@@ -9,7 +9,7 @@ import pickle
 
 #Computes the metrics of percentage shares and Diversity from a given submission's flair_map raw data
 def compute_flair_stats(flair_map_str):
-    #returns flair stats from scipy
+# Returns flair stats from scipy
     taglines = flair_map_str[1:-1].replace("'","").split(',') #combination of commenter and flair
     #commenters = list(map(lambda tagline: tagline.split(': ')[0].strip(),taglines))
     flairs = [tagline.split(': ')[1].strip() for tagline in taglines]
@@ -21,6 +21,8 @@ def compute_flair_stats(flair_map_str):
     return flair_stats
 
 def score_conv(score):
+# Converts Reddit submission score string to integer
+# When score is in short format for e.g., 11.1k, converts to 11200
     check_k = score.split('k')
     if(len(check_k)==2):
         return float(check_k[0])*1000
