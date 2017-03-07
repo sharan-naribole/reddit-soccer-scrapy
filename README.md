@@ -11,9 +11,9 @@ Reddit includes a subreddit for soccer content entries [/r/soccer](https://www.r
 ```python
 scrapy crawl flairs -o reddit_data.cv
 
-python3 processing.py
+python processing.py
 
-python3 analysis.py
+python analysis.py
 ```
 
 ## Data Collection
