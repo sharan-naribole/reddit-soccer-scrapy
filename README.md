@@ -56,4 +56,4 @@ Please read my [blog post](http://blog.nycdatascience.com/student-works/soccer-t
 
 # License
 
-Open sourced under the [MIT License](LICENSE.md)
+Open sourced under the [MIT License](LICENSE.md).
