@@ -6,6 +6,16 @@ Reddit includes a subreddit for soccer content entries [/r/soccer](https://www.r
 
 /r/soccer also provides each subscriber the feature to select a "flair" which is the team crest (team logo) of the club/country the user supports. A miniature team logo is displayed beside the username in their posts and comments. This gives other readers context and insight into the user's thinking and adds another interesting dimension to the conversations that take place. Although one can observe the flairs for each users, Reddit does not provide the flair distribution across the whole of /r/soccer. In this project, my objective is to scrape and analyze the flair distribution across the top posts in /r/soccer and this distribution's relationship with comments activity, submission score and submission type. 
 
+## Instructions
+
+```python
+scrapy crawl flairs -o reddit_data.cv
+
+python3 processing.py
+
+python3 analysis.py
+```
+
 ## Data Collection
 
 ### Objective

@@ -5,6 +5,7 @@
 import pandas as pd
 import numpy as np
 from scipy import stats
+import datetime
 import pickle
 
 #Computes the metrics of percentage shares and Diversity from a given submission's flair_map raw data
@@ -32,7 +33,7 @@ def score_conv(score):
 
 #Define a main() function that prints a little greeting.
 def main():
-    reddit_df = pd.read_csv("flairs/reddit_data.csv") #Data obtained from web scraping
+    reddit_df = pd.read_csv("reddit_data.csv") #Data obtained from web scraping
     reddit_df.set_index('title',inplace=True)
     metrics_data = {'top_share': np.zeros(len(reddit_df.index)),
                     'diversity': np.zeros(len(reddit_df.index))}
@@ -62,8 +63,8 @@ def main():
     #print(clubs_df.apply(lambda x:np.mean(x), axis=1).sort_values(ascending=False))
 
     #Concat Submission Score
-    
-    with open('metrics.pckl', 'wb') as f: 
+
+    with open('metrics.pckl', 'wb') as f:
         pickle.dump([clubs_df, submission_metrics_df], f)
     #clubs_df.to_csv("clubs.csv")
     #submission_metrics_df.to_csv("submission_metrics.csv")
