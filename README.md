@@ -62,7 +62,7 @@ The goal of data processing is to compute the following metrics for each submiss
 
 # Blog
 
-For more details, check out the blog on [Reddit](https://www.reddit.com/r/soccer/comments/5y5h8s/flair_activity_in_rsoccer/)
+For more details, check out the blog on [Reddit](https://www.reddit.com/r/soccer/comments/5y5h8s/flair_activity_in_rsoccer/).
 
 ## License
 
