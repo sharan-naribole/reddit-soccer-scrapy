@@ -65,7 +65,7 @@ def main():
     plt.xlabel("Flair Diversity per Submission")
     plt.ylabel("Percentage of Top Flair per Submission")
     plt.ylim((0,80.0))
-    plt.savefig('results/scatter_diversity_share_submission.eps', format='eps', dpi=1000)
+    plt.savefig('results/scatter_diversity_share_submission.png')
     #plt.show()
 
     #Plot 2: Scatter Plot b/w Diversity and Comments with Point Size and Color function of Submission Score
@@ -80,7 +80,7 @@ def main():
     plt.xlabel("Flair Diversity")
     plt.ylabel("Number of Comments")
     plt.ylim((0,3000.0))
-    plt.savefig('results/scatter_diversity_comments_submission.eps', format='eps', dpi=1000)
+    plt.savefig('results/scatter_diversity_comments_submission.png')
     #plt.show()
 
     # The values in clubs_df are in string format when read from .pkl file
@@ -103,7 +103,7 @@ def main():
     plt.ylabel("Flair percentage share per submission")
     plt.xlabel("Flairs")
     plt.tight_layout()
-    plt.savefig('results/top_clubs_flair_share.eps', format='eps', dpi=1000)
+    plt.savefig('results/top_clubs_flair_share.png')
 
     #---------------------------------------------------------------------------
     ## Comparing Metrics for Submissions:
@@ -136,7 +136,7 @@ def main():
     plt.ylim((20,200))
     plt.xlabel("Submission Type")
     plt.ylabel("Flair Diversity")
-    plt.savefig('results/diversity_submission_type.eps', format='eps', dpi=1000)
+    plt.savefig('results/diversity_submission_type.png')
     #plt.show()
 
     #Plot 2: Box Plot of Submission Score
@@ -149,7 +149,7 @@ def main():
     plt.xlabel("Submission Type")
     plt.ylabel("Submission Score")
     plt.ylim((0,5000))
-    plt.savefig('results/score_submission_type.eps', format='eps', dpi=1000)
+    plt.savefig('results/score_submission_type.png')
     #plt.show()
 
     #Plot 3: Box Plot of Top Share
@@ -163,7 +163,7 @@ def main():
     plt.xlabel("Submission Type")
     plt.ylabel("Top Flair Percentage Share")
     plt.ylim((0,15))
-    plt.savefig('results/top_share_submission_type.eps', format='eps', dpi=1000)
+    plt.savefig('results/top_share_submission_type.png')
     #plt.show()
 
     #Plot 3: Box Plot of Comments
@@ -176,7 +176,7 @@ def main():
     plt.xlabel("Submission Type")
     plt.ylabel("Number of Comments")
     plt.ylim((0,2000))
-    plt.savefig('results/comments_submission_type.eps', format='eps', dpi=1000)
+    plt.savefig('results/comments_submission_type.png')
     #plt.show()
 
 # This is the standard boilerplate that calls the main() function.
