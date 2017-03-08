@@ -64,6 +64,6 @@ The goal of data processing is to compute the following metrics for each submiss
 
 Please read my [blog post](http://blog.nycdatascience.com/student-works/soccer-team-popularity-reddit/) for more detailed discussion
 
-# License
+## License
 
 Open sourced under the [MIT License](LICENSE.md).
