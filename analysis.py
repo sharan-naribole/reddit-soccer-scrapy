@@ -1,6 +1,6 @@
 # Author: Sharan Naribole
 # Filename: analysis.py
-# Evaluation of Reddit Soccer data after transformations 
+# Evaluation of Reddit Soccer data after transformations
 
 import numpy as np
 import pandas as pd
@@ -33,7 +33,7 @@ def word_locate(x,y):
     return res
 
 def check_goal(title):
-# Boolean function that checks if keywords exist in input string    
+# Boolean function that checks if keywords exist in input string
     check = 0
     keywords =['goal','scores','vs','against']
     keywords_bool =list(map(lambda keyword:word_locate(keyword,title),keywords))
@@ -47,58 +47,69 @@ def check_goal(title):
 def main():
     with open('metrics.pckl','rb') as f:
         clubs_df, submission_metrics_df = pickle.load(f)
-    #clubs_df = pd.read_csv("clubs.csv",index_col=0)
-    #submission_metrics_df = pd.read_csv("submission_metrics.csv",index_col = 0)
-    submission_metrics_df.sort_values('score',ascending=True, inplace=True)
 
+    submission_metrics_df.sort_values('score',ascending=True, inplace=True)
 
     #---------------------------------------------------------------------------
     ## Submissions Analysis
     #---------------------------------------------------------------------------
-    #Plot 1: :Scatter Plot b/w Diversity and Top Share with Point Size and Color function of Submission Score
+    #Plot 1: Scatter Plot b/w Diversity and Top Share with Point Size and Color function of Submission Score
+    print("Scatter Plot b/w Diversity and Top Share with Point Size and Color function of Submission Score")
     low_scale = int(0*len(submission_metrics_df))
     up_scale = int(1.0*len(submission_metrics_df))
     #print(submission_metrics_df[low_scale:up_scale])
+    plt.figure(0)
     plt.scatter(submission_metrics_df.diversity[low_scale:up_scale],submission_metrics_df.top_share[low_scale:up_scale]
     ,s= submission_metrics_df.score[low_scale:up_scale]*0.1, c= submission_metrics_df.score[low_scale:up_scale])
     plt.title("Flair Analysis per Submission for /r/soccer Top posts \n Marker Size and Color varied by Submission Score")
     plt.xlabel("Flair Diversity per Submission")
     plt.ylabel("Percentage of Top Flair per Submission")
     plt.ylim((0,80.0))
-    #plt.savefig('results/scatter_submission.eps', format='eps', dpi=1000)
+    plt.savefig('results/scatter_diversity_share_submission.eps', format='eps', dpi=1000)
     #plt.show()
 
-    #Plot 2: :Scatter Plot b/w Diversity and Comments with Point Size and Color function of Submission Score
+    #Plot 2: Scatter Plot b/w Diversity and Comments with Point Size and Color function of Submission Score
+    print("Scatter Plot b/w Diversity and Comments with Point Size and Color function of Submission Score")
     low_scale = int(0*len(submission_metrics_df))
     up_scale = int(1.0*len(submission_metrics_df))
     #print(submission_metrics_df[low_scale:up_scale])
+    plt.figure(1)
     plt.scatter(submission_metrics_df.diversity[low_scale:up_scale],submission_metrics_df.comments[low_scale:up_scale]
     ,s= submission_metrics_df.score[low_scale:up_scale]*0.1, c= submission_metrics_df.score[low_scale:up_scale])
     plt.title("Activity Analysis per Submission for /r/soccer Top posts \n Marker Size and Color varied by Submission Score")
     plt.xlabel("Flair Diversity")
     plt.ylabel("Number of Comments")
     plt.ylim((0,3000.0))
-    #plt.savefig('results/scatter_submission.eps', format='eps', dpi=1000)
-    plt.show()
+    plt.savefig('results/scatter_diversity_comments_submission.eps', format='eps', dpi=1000)
+    #plt.show()
+
+    # The values in clubs_df are in string format when read from .pkl file
+    clubs_df = clubs_df.astype(float)
+    #print(type(clubs_df.iloc[0,0]))
 
     #---------------------------------------------------------------------------
-    ## Clubs Analysis for TOP 6 Clubs with the highest average flair share percentage
+    ## Clubs Analysis for TOP  Clubs with the highest average flair share percentage
     #---------------------------------------------------------------------------
+    print("Top 25 Clubs with highest flair share percentage:")
     print(clubs_df.apply(lambda x:np.mean(x), axis=1).sort_values(ascending=False)[:25])
-    top_clubs = list(clubs_df.apply(lambda x:np.mean(x), axis=1).sort_values(ascending=False)[:6].index)
+    plt.figure(2)
+    top_clubs = list(clubs_df.apply(lambda x:np.mean(x), axis=1).sort_values(ascending=False)[:10].index)
     clubs_df = clubs_df.transpose()
     plt.figure()
-    sns.boxplot(x=clubs_df[top_clubs])
+    sns.boxplot(x=clubs_df[top_clubs],vert = False)
     #clubs_df.boxplot(top_clubs)
-    plt.ylim((0,25.0))
+    plt.xlim((0,25.0))
     plt.suptitle("Flair distribution in /r/soccer")
     plt.ylabel("Flair percentage share per submission")
     plt.xlabel("Flairs")
-    plt.show()
+    plt.tight_layout()
+    plt.savefig('results/top_clubs_flair_share.eps', format='eps', dpi=1000)
 
     #---------------------------------------------------------------------------
     ## Comparing Metrics for Submissions:
     #---------------------------------------------------------------------------
+
+    print("Beginning Submission Type Comparative analysis ...")
 
     boxprops = dict(linestyle='-', linewidth=5, color='darkgoldenrod')
     flierprops = dict(marker='o', markerfacecolor='green', markersize=12,
@@ -116,15 +127,21 @@ def main():
     rest_df = rest1_df.merge(rest2_df,how='inner',on='title')
 
     #Plot 1: Box Plot of Diversity
+    print("Box Plot of Diversity")
+    plt.figure(3)
     plt.boxplot([goals_df['diversity'],match_thread_df['diversity'],rest_df['diversity_x']], \
     boxprops=boxprops,flierprops=flierprops,medianprops=medianprops,meanprops= meanlineprops)
     plt.xticks([1,2,3],['Goals','Match Threads','Rest'])
     plt.title("Flair Diversity Analysis for /r/soccer top posts")
+    plt.ylim((20,200))
     plt.xlabel("Submission Type")
     plt.ylabel("Flair Diversity")
-    plt.show()
+    plt.savefig('results/diversity_submission_type.eps', format='eps', dpi=1000)
+    #plt.show()
 
     #Plot 2: Box Plot of Submission Score
+    print("Box Plot of Submission Score")
+    plt.figure(4)
     plt.boxplot([goals_df['score'],match_thread_df['score'],rest_df['score_x']], \
     boxprops=boxprops,flierprops=flierprops,medianprops=medianprops,meanprops= meanlineprops)
     plt.xticks([1,2,3],['Goals','Match Threads','Rest'])
@@ -132,19 +149,26 @@ def main():
     plt.xlabel("Submission Type")
     plt.ylabel("Submission Score")
     plt.ylim((0,5000))
-    plt.show()
+    plt.savefig('results/score_submission_type.eps', format='eps', dpi=1000)
+    #plt.show()
 
     #Plot 3: Box Plot of Top Share
-    plt.boxplot([goals_df['top_share'],match_thread_df['top_share'],rest_df['top_share_x']], \
+    print("Box Plot of Top Share")
+    plt.figure(5)
+    plt.boxplot([goals_df['top_share'].astype(float), \
+    match_thread_df['top_share'].astype(float),rest_df['top_share_x'].astype(float)], \
     boxprops=boxprops,flierprops=flierprops,medianprops=medianprops,meanprops= meanlineprops)
     plt.xticks([1,2,3],['Goals','Match Threads','Rest'])
     plt.title("Top Flair Share Analysis for /r/soccer top posts")
     plt.xlabel("Submission Type")
     plt.ylabel("Top Flair Percentage Share")
     plt.ylim((0,15))
-    plt.show()
+    plt.savefig('results/top_share_submission_type.eps', format='eps', dpi=1000)
+    #plt.show()
 
-    #Plot 4: Box Plot of Comments
+    #Plot 3: Box Plot of Comments
+    print("Box Plot of Number of Comments")
+    plt.figure(6)
     plt.boxplot([goals_df['comments'],match_thread_df['comments'],rest_df['comments_x']], \
     boxprops=boxprops,flierprops=flierprops,medianprops=medianprops,meanprops= meanlineprops)
     plt.xticks([1,2,3],['Goals','Match Threads','Rest'])
@@ -152,7 +176,8 @@ def main():
     plt.xlabel("Submission Type")
     plt.ylabel("Number of Comments")
     plt.ylim((0,2000))
-    plt.show()
+    plt.savefig('results/comments_submission_type.eps', format='eps', dpi=1000)
+    #plt.show()
 
 # This is the standard boilerplate that calls the main() function.
 if __name__ == '__main__':
