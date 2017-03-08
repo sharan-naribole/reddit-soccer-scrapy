@@ -60,9 +60,6 @@ The goal of data processing is to compute the following metrics for each submiss
 
 - [analysis.py](https://github.com/sharan-naribole/reddit-soccer-scrapy/blob/master/analysis.py) creates the plot visualisations using processed data.
 
-## Blog Post
-
-Please read my [blog post](http://blog.nycdatascience.com/student-works/soccer-team-popularity-reddit/) for more detailed discussion
 
 ## License
 
