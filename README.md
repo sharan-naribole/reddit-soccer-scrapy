@@ -9,7 +9,7 @@ Reddit includes a subreddit for soccer content entries [/r/soccer](https://www.r
 ## Instructions
 
 ```python
-scrapy crawl flairs -o reddit_data.cv
+scrapy crawl flairs -o reddit_data.csv
 
 python processing.py
 
