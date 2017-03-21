@@ -37,9 +37,9 @@ For each submission on /r/soccer, my goal is to collect the following features:
 
 ### Tools
 
-- [Scrapy Python framework] (https://github.com/sharan-naribole/reddit-soccer-scrapy/blob/master/flairs/flairs/spiders/rsoccer_flairs.py) 
+- [Scrapy Python framework](https://github.com/sharan-naribole/reddit-soccer-scrapy/blob/master/flairs/flairs/spiders/rsoccer_flairs.py) 
 
-- [SelectorGadget Chrome extension] (http://selectorgadget.com/)  
+- [SelectorGadget Chrome extension](http://selectorgadget.com/)  
 
 ## Data Processing
 
